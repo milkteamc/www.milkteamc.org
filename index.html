@@ -46,7 +46,7 @@
         return response.json();
       })
       .then(data => {
-        document.getElementById("online").innerHTML = "目前線上有 " + data.players.online + " 位玩家";
+        document.getElementById("online").innerHTML = data.players.online;
       })
       .catch(error => {
         console.error("There was a problem fetching the online players data:", error);
@@ -160,7 +160,7 @@
                 <div class="text-wrapper">
                     <h3 class="mbr-section-title mbr-fonts-style mb-3 display-5"><strong>奶茶伺服器 —— 帶給您全新的 Minecraft 生存體驗</strong></h3>
                     <p class="mbr-text mbr-fonts-style display-7">您是否想要一個有趣、豐富的 Minecraft 生存伺服器？那麼，奶茶伺服器就是您一直在尋找的伺服器！
-<br>無論是野外求生、建立基地，還是與其他玩家一起合作完成任務，奶茶伺服器都滿足您的要求。擁有許多有趣的功能，讓您感受全新的生存體驗。<br></p>
+<br>無論是野外求生、建立基地，還是與其他玩家一起合作完成任務，奶茶伺服器都滿足您的要求。擁有許多有趣的功能，讓您感受全新的生存體驗。<br>馬上就來和<div id="online"></div>位玩家一起遊玩吧！</p>
                 </div>
             </div>
         </div>
