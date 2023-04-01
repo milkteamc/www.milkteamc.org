@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>顯示用戶延遲時間和 IP</title>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+	<p>用戶 IP：</p>
+	<p id="user-ip"></p>
+	<p>伺服器延遲時間：</p>
+	<p id="server-latency"></p>
+
+	<script>
+		$(document).ready(function(){
+			// 取得用戶的 IP
+			$.getJSON('//api.ipify.org?format=json', function(data){
+				$('#user-ip').text(data.ip);
+			});
+
+			// 計算伺服器延遲時間
+			var startTime = new Date().getTime();
+			$.get('/', function(){
+				var endTime = new Date().getTime();
+				var latency = endTime - startTime;
+				$('#server-latency').text(latency + 'ms');
+			});
+		});
+	</script>
+</body>
+</html>
