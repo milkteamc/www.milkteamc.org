@@ -34,7 +34,28 @@
 <body>
   
   <section data-bs-version="5.1" class="menu menu1 cid-tzAiaKTUgv" once="menu" id="menu1-o">
-    
+    <script>
+  function getOnlinePlayers() {
+    var url = "https://api.mcsrvstat.us/2/milkteamc.org";
+
+    fetch(url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then(data => {
+        document.getElementById("online").innerHTML = "目前線上有 " + data.players.online + " 位玩家";
+      })
+      .catch(error => {
+        console.error("There was a problem fetching the online players data:", error);
+      });
+  }
+
+  getOnlinePlayers();
+  setInterval(getOnlinePlayers, 5000);
+</script>
 
     <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
         <div class="container-fluid">
@@ -129,6 +150,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-12 col-lg-6">
+              <div id="online"></div>
                 <div class="image-wrapper">
                     <img src="assets/images/image2-1076x805.png" alt="介紹文旁圖片">
                     <p class="mbr-description mbr-fonts-style pt-2 align-center display-4"></p>
