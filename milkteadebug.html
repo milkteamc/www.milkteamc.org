@@ -27,26 +27,41 @@
 
 			// 獲取用戶的 IP
 			function getUserIP(){
-				$.getJSON('//api.ipify.org?format=json', function(data){
-					$('#user-ip').text(data.ip);
-				});
-			};
+				var xhr = new XMLHttpRequest();
+				xhr.onreadystatechange = function(){
+					if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
+						var data = JSON.parse(xhr.responseText);
+						$('#user-ip').text(data.ip);
+					}
+				};
+				xhr.open('GET', 'https://api.ipify.org?format=json', true);
+				xhr.send();
+			}
 
 			// 獲取伺服器延遲時間
 			function getServerLatency(){
 				var startTime = new Date().getTime();
-				$.get('/', function(){
-					var endTime = new Date().getTime();
-					var latency = endTime - startTime;
-					$('#server-latency').text(latency + 'ms');
-				});
-			};
+				var xhr = new XMLHttpRequest();
+				xhr.onreadystatechange = function(){
+					if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
+						var endTime = new Date().getTime();
+						var latency = endTime - startTime;
+						$('#server-latency').text(latency + 'ms');
+					}
+				};
+				xhr.open('GET', '/ping', true);
+				xhr.send();
+			}
 
 			// 定時更新用戶 IP 和 伺服器延遲時間
 			setInterval(function(){
 				getUserIP();
 				getServerLatency();
 			}, 1000);
+
+			// 當頁面載入完成後，立即執行一次獲取用戶 IP 和 伺服器延遲時間的函式
+			getUserIP();
+			getServerLatency();
 		});
 	</script>
 </body>
