@@ -282,7 +282,19 @@
 
 <section data-bs-version="5.1" class="footer7 cid-tzAxPlFeiv" once="footers" id="footer7-t">
 
-    
+    	<script>
+		var target_time = new Date("2021-06-27T13:00:00"),
+			timer_interval = setInterval(calculate_time_diff, 1000);
+		function calculate_time_diff() {
+			var current_time = new Date(),
+				time_diff = current_time - target_time,
+				days_diff = Math.floor(time_diff / (1000 * 60 * 60 * 24)),
+				hours_diff = Math.floor((time_diff / (1000 * 60 * 60)) % 24),
+				minutes_diff = Math.floor((time_diff / (1000 * 60)) % 60),
+				seconds_diff = Math.floor((time_diff / 1000) % 60);
+			document.getElementById("time_diff").innerHTML = "開服至今已經過了 " + days_diff + " 天 " + hours_diff + " 小時 " + minutes_diff + " 分鐘 " + seconds_diff + " 秒";
+		}
+	</script>
 
     
 
@@ -292,6 +304,7 @@
                 <p class="mbr-text mb-0 mbr-fonts-style display-7">
                     © Copyright 2021-2023 milkteamc.org - All Rights Reserved
                 </p>
+              <p id="time_diff"></p>
             </div>
         </div>
     </div>
