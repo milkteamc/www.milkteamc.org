@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>114會考倒數計時</title>
+  <script>
+    // 設定目標日期
+    var targetDate = new Date('2025-05-17T00:20:00Z').getTime();
+
+    // 更新倒數計時器
+    function updateCountdown() {
+      // 取得現在的日期和時間
+      var now = new Date().getTime();
+
+      // 計算目標日期和現在日期的時間差
+      var timeDiff = targetDate - now;
+
+      // 計算相差的天、時、分、秒
+      var days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+      // 將結果顯示在網頁上
+      document.getElementById('countdown').innerHTML = days + ' 天 ' + hours + ' 時 ' + minutes + ' 分 ' + seconds + ' 秒';
+
+      // 如果倒數計時結束，顯示訊息
+      if (timeDiff < 0) {
+        clearInterval(countdownInterval);
+        document.getElementById('countdown').innerHTML = '2024/5/18 已經過了~';
+      }
+    }
+
+    // 每秒更新倒數計時器
+    var countdownInterval = setInterval(updateCountdown, 1000);
+  </script>
+</head>
+<body>
+  <h1>114會考倒數計時</h1>
+  <p>距離114會考還有</p>
+  <p id="countdown"></p>
+</body>
+</html>
