@@ -1,0 +1,51 @@
+---
+// src/components/Header.astro
+import { siteConfig } from '../config/site.js';
+
+const { name, navigation, ui } = siteConfig;
+---
+
+<header class="header">
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="/favicon.png" alt={name} class="logo-icon"> 
+                {name}
+            </a>
+            
+            <!-- Desktop Menu -->
+            <ul class="nav-menu">
+                {navigation.map(item => (
+                    <li>
+                        <a 
+                            href={item.href} 
+                            class="nav-link"
+                            target={item.external ? "_blank" : undefined}
+                        >
+                            {item.name}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" aria-label={ui.menuLabel}>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        {navigation.map(item => (
+            <a 
+                href={item.href}
+                target={item.external ? "_blank" : undefined}
+            >
+                {item.name}
+            </a>
+        ))}
+    </div>
+</header>

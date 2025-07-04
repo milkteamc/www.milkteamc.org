@@ -1,0 +1,57 @@
+---
+// src/components/Footer.astro
+import { siteConfig } from '../config/site.js';
+
+const { name, description, footerLinks } = siteConfig;
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>
+                    <img src="/favicon.png" alt={name} class="footer-logo-icon"> 
+                    {name}
+                </h3>
+                <p>帶給您全新的 Minecraft 遊戲體驗</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>快速連結</h4>
+                <ul>
+                    {footerLinks.quickLinks.map(link => (
+                        <li>
+                            <a 
+                                href={link.href}
+                                target={link.external ? "_blank" : undefined}
+                            >
+                                {link.name}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>社群連結</h4>
+                <ul>
+                    {footerLinks.community.map(link => (
+                        <li>
+                            <a 
+                                href={link.href}
+                                target={link.external ? "_blank" : undefined}
+                            >
+                                {link.name}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>GNU GPL-3.0 License &copy; {currentYear} MilkTeaMC Team and Contributors.</p>
+        </div>
+    </div>
+</footer>

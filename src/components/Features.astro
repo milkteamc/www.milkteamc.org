@@ -1,0 +1,22 @@
+---
+// src/components/Features.astro
+import { siteConfig } from '../config/site.js';
+
+const { features } = siteConfig;
+---
+
+<section class="features">
+    <div class="container">
+        <h2 class="section-title">特色玩法</h2>
+        
+        <div class="features-grid">
+            {features.map(feature => (
+                <div class="feature-card">
+                    <div class="feature-icon">{feature.icon}</div>
+                    <h3>{feature.title}</h3>
+                    <p>{feature.description}</p>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>

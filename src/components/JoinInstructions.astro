@@ -1,0 +1,38 @@
+---
+// src/components/JoinInstructions.astro
+import { siteConfig } from '../config/site.js';
+
+const { instructions, links } = siteConfig;
+---
+
+<section class="join-instructions">
+    <div class="container">
+        <h2 class="section-title">如何加入？</h2>
+        
+        <div class="instructions-grid">
+            <!-- BE instruction -->
+            <div class="instruction-card">
+                <h3>{instructions.bedrock.platform}</h3>
+                <ol>
+                    {instructions.bedrock.steps.map(step => (
+                        <li set:html={step.replace(/milkteamc\.org/g, '<code>milkteamc.org</code>').replace(/10147/g, '<code>10147</code>')} />
+                    ))}
+                </ol>
+            </div>
+            
+            <!-- JE instruction -->
+            <div class="instruction-card">
+                <h3>{instructions.java.platform}</h3>
+                <ol>
+                    {instructions.java.steps.map(step => (
+                        <li set:html={step.replace(/milkteamc\.org/g, '<code>milkteamc.org</code>')} />
+                    ))}
+                </ol>
+            </div>
+        </div>
+        
+        <div class="info-note">
+            <p>💡 需要更詳細的教學或遇到連線問題？請查看我們的 <a href={links.connectGuide} target="_blank">詳細連線指南</a></p>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,96 @@
+---
+// src/components/SEO.astro
+import { siteConfig } from '../config/site.js';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  article?: boolean;
+  noindex?: boolean;
+}
+
+const { title, description, image, article = false, noindex = false } = Astro.props;
+const { seo, name } = siteConfig;
+
+const fullTitle = title ? `${title} - ${name}` : seo.title;
+
+const metaDescription = description || seo.description;
+
+const fullImage = image ? `${seo.siteUrl}${image}` : `${seo.siteUrl}${seo.image}`;
+
+const canonicalURL = new URL(Astro.url.pathname, seo.siteUrl);
+
+const jsonLD = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": name,
+  "description": seo.description,
+  "url": seo.siteUrl,
+  "logo": `${seo.siteUrl}/favicon.png`,
+  "sameAs": [
+    siteConfig.links.discord,
+    siteConfig.links.wiki
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "url": siteConfig.links.discord
+  }
+};
+
+const gameServerLD = {
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "Minecraft",
+  "gamePlatform": ["Java Edition", "Bedrock Edition"],
+  "applicationCategory": "Game",
+  "operatingSystem": ["Windows", "macOS", "Linux", "iOS", "Android"],
+  "provider": {
+    "@type": "Organization",
+    "name": name,
+    "url": seo.siteUrl
+  }
+};
+---
+
+<!-- Basic Meta Tags -->
+<title>{fullTitle}</title>
+<meta name="description" content={metaDescription}>
+<meta name="keywords" content={seo.keywords.join(', ')}>
+<meta name="author" content={seo.author}>
+<link rel="canonical" href={canonicalURL}>
+
+<!-- Open Graph -->
+<meta property="og:type" content={article ? "article" : "website"}>
+<meta property="og:title" content={fullTitle}>
+<meta property="og:description" content={metaDescription}>
+<meta property="og:image" content={fullImage}>
+<meta property="og:image:alt" content={`${name} - ${metaDescription}`}>
+<meta property="og:url" content={canonicalURL}>
+<meta property="og:site_name" content={name}>
+<meta property="og:locale" content="zh_TW">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content={seo.twitterHandle}>
+<meta name="twitter:creator" content={seo.twitterHandle}>
+<meta name="twitter:title" content={fullTitle}>
+<meta name="twitter:description" content={metaDescription}>
+<meta name="twitter:image" content={fullImage}>
+<meta name="twitter:image:alt" content={`${name} - ${metaDescription}`}>
+
+<!-- Discord embed -->
+<meta name="theme-color" content="#D4A574">
+
+<meta name="application-name" content={name}>
+<meta name="msapplication-TileColor" content="#D4A574">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(jsonLD)}></script>
+<script type="application/ld+json" set:html={JSON.stringify(gameServerLD)}></script>
+
+<!-- Preconnect to external domains -->
+<link rel="preconnect" href="https://discord.gg">
+<link rel="preconnect" href="https://wiki.milkteamc.org">
+<link rel="preconnect" href="https://bans.milkteamc.org">
