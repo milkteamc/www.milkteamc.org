@@ -106,7 +106,7 @@ export const siteConfig = {
     ],
     community: [
       { name: "Discord 社群", href: "https://discord.gg/22DxRjrXRv", external: true },
-      { name: "官方 Twitter/X 帳號", href: "https://x.com/milkteamcorg", external: true }
+      { name: "Twitter/X 帳號", href: "https://x.com/milkteamcorg", external: true }
     ]
   },
   
