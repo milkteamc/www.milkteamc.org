@@ -34,8 +34,8 @@ export const siteConfig = {
   },
   
   navigation: [
-    { name: "規則", href: "https://wiki.milkteamc.org/rules/", external: false },
     { name: "Discord", href: "https://discord.gg/22DxRjrXRv", external: true },
+    { name: "伺服器規則", href: "https://wiki.milkteamc.org/rules/", external: false },
     { name: "封禁列表", href: "https://bans.milkteamc.org", external: true},
     { name: "遊玩教學", href: "https://wiki.milkteamc.org", external: false }
   ],
