@@ -662,10 +662,7 @@ body {
 /* Stats Section */
 .stats {
   padding: var(--spacing-xxl) 0;
-  background: 
-      radial-gradient(circle at 30% 40%, rgba(212, 165, 116, 0.15) 0%, transparent 50%),
-      radial-gradient(circle at 70% 80%, rgba(229, 184, 133, 0.1) 0%, transparent 50%),
-      rgba(26, 26, 27, 0.3);
+  background: rgba(26, 26, 27, 0.3);
 }
 
 .stats-grid {
