@@ -1,0 +1,58 @@
+---
+// src/pages/index.astro
+import Layout from '../layouts/Layout.astro';
+import { siteConfig } from '../config/site.js';
+import ServerIP from '../components/ServerIP.astro';
+import Features from '../components/Features.astro';
+import JoinInstructions from '../components/JoinInstructions.astro';
+
+const { name, tagline, links, ui } = siteConfig;
+---
+
+<Layout>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-main">{name}</span>
+                    <span class="title-sub">{tagline}</span>
+                </h1>
+
+                <!-- Server IPs -->
+                <ServerIP />
+
+                <div class="hero-actions">
+                    <a href={links.wiki} class="btn btn-primary" target="_blank">
+                        {ui.viewGuide}
+                    </a>
+                    <a href={links.discord} class="btn btn-secondary" target="_blank">
+                        {ui.joinCommunity}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <Features />
+
+    <!-- Join Instructions -->
+    <JoinInstructions />
+
+    <!-- Discord Section -->
+    <section class="discord-section">
+        <div class="container">
+            <div class="discord-card">
+                <div class="discord-content">
+                    <div class="discord-icon">💬</div>
+                    <h2>加入我們的社群</h2>
+                    <p>在 Discord 與其他玩家聊天、分享作品、獲取最新消息</p>
+                    <a href={links.discord} class="btn btn-discord" target="_blank">
+                        {ui.joinDiscord}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>

@@ -1,0 +1,32 @@
+---
+// src/components/ServerIP.astro
+import { siteConfig } from '../config/site.js';
+
+const { servers, ui } = siteConfig;
+---
+
+<div class="server-ips">
+    <!-- JE -->
+    <div class="ip-card">
+        <div class="ip-label">{servers.java.label}</div>
+        <div class="ip-input-group">
+            <input type="text" class="ip-input" value={servers.java.ip} readonly>
+            <button class="copy-btn" data-ip={servers.java.ip}>{ui.copyButton}</button>
+        </div>
+    </div>
+    
+    <!-- BE -->
+    <div class="ip-card">
+        <div class="ip-label">{servers.bedrock.label}</div>
+        <div class="ip-group">
+            <div class="ip-input-group">
+                <input type="text" class="ip-input" value={servers.bedrock.ip} readonly>
+                <button class="copy-btn" data-ip={servers.bedrock.ip}>{ui.copyButton}</button>
+            </div>
+            <div class="ip-input-group">
+                <input type="text" class="ip-input" value={servers.bedrock.port} readonly>
+                <button class="copy-btn" data-ip={servers.bedrock.port}>{ui.copyButton}</button>
+            </div>
+        </div>
+    </div>
+</div>

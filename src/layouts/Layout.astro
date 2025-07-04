@@ -1,0 +1,64 @@
+---
+// src/layouts/Layout.astro
+import { siteConfig } from '../config/site.js';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SEO from '../components/SEO.astro';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  article?: boolean;
+  noindex?: boolean;
+}
+
+const { title, description, image, article, noindex } = Astro.props;
+const { ui } = siteConfig;
+---
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO and Social Media Meta Tags -->
+    <SEO 
+      title={title}
+      description={description}
+      image={image}
+      article={article}
+      noindex={noindex}
+    />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <!-- Local Font -->
+    <link rel="stylesheet" href="/fonts.css">
+    
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="/styles/global.css">
+</head>
+<body>
+    <!-- Header -->
+    <Header />
+
+    <!-- Main Content -->
+    <main>
+        <slot />
+    </main>
+
+    <!-- Footer -->
+    <Footer />
+
+    <!-- Copy Success Toast -->
+    <div id="copyToast" class="copy-toast">
+        <span>{ui.copySuccess}</span>
+    </div>
+
+    <!-- JavaScript -->
+    <script type="module" src="/src/scripts/main.js"></script>
+</body>
+</html>
