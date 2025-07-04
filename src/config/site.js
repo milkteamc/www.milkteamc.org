@@ -69,7 +69,7 @@ export const siteConfig = {
     {
       "icon": "📚",
       "title": "新手友善支援",
-      "description": "詳盡的 Wiki 百科和活躍 Discord 社群，從基礎到進階一應俱全，新手也能快速上手。"
+      "description": "詳盡的 Wiki 頁面和活躍 Discord 社群，從基礎到進階一應俱全，新手也能快速上手。"
     }
   ],
   
@@ -102,18 +102,18 @@ export const siteConfig = {
     quickLinks: [
       { name: "伺服器規則", href: "https://wiki.milkteamc.org/rules/", external: false },
       { name: "封禁列表", href: "https://bans.milkteamc.org", external: false },
-      { name: "Wiki 百科", href: "https://wiki.milkteamc.org", external: false }
+      { name: "Wiki 頁面", href: "https://wiki.milkteamc.org", external: false }
     ],
     community: [
-      { name: "Discord 群組", href: "https://discord.gg/22DxRjrXRv", external: true },
-      { name: "連線教學", href: "https://wiki.milkteamc.org/#connect", external: false }
+      { name: "Discord 社群", href: "https://discord.gg/22DxRjrXRv", external: true },
+      { name: "官方 Twitter/X 帳號", href: "https://x.com/milkteamcorg", external: true }
     ]
   },
   
   ui: {
     copyButton: "複製",
     copySuccess: "✅ IP 已複製到剪貼板!",
-    joinDiscord: "立即加入 Discord",
+    joinDiscord: "立即加入 Discord 社群",
     viewGuide: "查看遊玩教學", 
     joinCommunity: "加入 Discord 社群",
     menuLabel: "選單"
