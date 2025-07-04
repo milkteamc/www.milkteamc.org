@@ -657,3 +657,103 @@ body {
     font-size: 1.1rem;
   }
 }
+
+
+/* Stats Section */
+.stats {
+  padding: var(--spacing-xxl) 0;
+  background: 
+      radial-gradient(circle at 30% 40%, rgba(212, 165, 116, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 70% 80%, rgba(229, 184, 133, 0.1) 0%, transparent 50%),
+      rgba(26, 26, 27, 0.3);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-xl);
+  text-align: center;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(212, 165, 116, 0.4);
+}
+
+.stat-icon {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-sm);
+  display: block;
+}
+
+.stat-number {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-xs);
+  text-shadow: 0 2px 8px rgba(212, 165, 116, 0.3);
+  font-family: 'Courier New', monospace;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+  .stats {
+      padding: var(--spacing-xl) 0;
+  }
+  
+  .stats-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-md);
+  }
+  
+  .stat-card {
+      padding: var(--spacing-lg);
+  }
+  
+  .stat-icon {
+      font-size: 2.5rem;
+  }
+  
+  .stat-label {
+      font-size: var(--font-size-base);
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-card {
+      padding: var(--spacing-md);
+  }
+  
+  .stat-icon {
+      font-size: 2rem;
+      margin-bottom: var(--spacing-xs);
+  }
+  
+  .stat-label {
+      font-size: var(--font-size-sm);
+  }
+}

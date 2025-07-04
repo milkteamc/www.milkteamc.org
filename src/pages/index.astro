@@ -5,6 +5,7 @@ import { siteConfig } from '../config/site.js';
 import ServerIP from '../components/ServerIP.astro';
 import Features from '../components/Features.astro';
 import JoinInstructions from '../components/JoinInstructions.astro';
+import Stats from '../components/Stats.astro';
 
 const { name, tagline, links, ui } = siteConfig;
 ---
@@ -39,6 +40,9 @@ const { name, tagline, links, ui } = siteConfig;
 
     <!-- Join Instructions -->
     <JoinInstructions />
+    
+    <!-- Stats Section -->
+    <Stats />
 
     <!-- Discord Section -->
     <section class="discord-section">

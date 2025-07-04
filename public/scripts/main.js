@@ -8,6 +8,7 @@ class MilkTeaServer {
     this.initCopyFunctionality();
     this.initSmoothScrolling();
     this.initClickOutside();
+    this.initStatsAnimation(); // 新增統計動畫
   }
 
   // mobile stuff
@@ -31,9 +32,7 @@ class MilkTeaServer {
   initCopyFunctionality() {
     const copyButtons = document.querySelectorAll('.copy-btn');
     const copyToast = document.getElementById('copyToast');
-
     if (!copyToast) return;
-
     copyButtons.forEach(button => {
       button.addEventListener('click', async () => {
         const ip = button.getAttribute('data-ip');
@@ -99,6 +98,81 @@ class MilkTeaServer {
         mobileMenu.style.display = 'none';
       }
     });
+  }
+
+  initStatsAnimation() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    if (statNumbers.length === 0) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.startStatsAnimation();
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.5 });
+
+    const statsSection = document.querySelector('.stats');
+    if (statsSection) {
+      observer.observe(statsSection);
+    }
+  }
+
+  startStatsAnimation() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    
+    statNumbers.forEach(element => {
+      const target = element.getAttribute('data-target');
+      let finalValue;
+      
+      if (target === 'days') {
+        finalValue = this.calculateOperatingDays();
+      } else {
+        finalValue = parseInt(target);
+      }
+      
+      this.animateNumber(element, 0, finalValue, 2000); // 2秒動畫
+    });
+  }
+
+  calculateOperatingDays() {
+    const startDate = new Date('2021-06-23');
+    const today = new Date();
+    const timeDiff = today.getTime() - startDate.getTime();
+    const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+    return daysDiff;
+  }
+
+  animateNumber(element, start, end, duration) {
+    const startTime = performance.now();
+    
+    const updateNumber = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      
+      const currentValue = Math.floor(start + (end - start) * easeProgress);
+      
+      if (end >= 6000) {
+        element.textContent = currentValue.toLocaleString() + '+';
+      } else {
+        element.textContent = currentValue.toLocaleString();
+      }
+      
+      if (progress < 1) {
+        requestAnimationFrame(updateNumber);
+      } else {
+        if (end >= 6000) {
+          element.textContent = end.toLocaleString() + '+';
+        } else {
+          element.textContent = end.toLocaleString();
+        }
+      }
+    };
+    
+    requestAnimationFrame(updateNumber);
   }
 }
 
