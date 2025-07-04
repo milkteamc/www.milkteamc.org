@@ -8,7 +8,7 @@ class MilkTeaServer {
     this.initCopyFunctionality();
     this.initSmoothScrolling();
     this.initClickOutside();
-    this.initStatsAnimation(); // 新增統計動畫
+    this.initStatsAnimation();
   }
 
   // mobile stuff
@@ -132,7 +132,7 @@ class MilkTeaServer {
         finalValue = parseInt(target);
       }
       
-      this.animateNumber(element, 0, finalValue, 2000); // 2秒動畫
+      this.animateNumber(element, 0, finalValue, 2000);
     });
   }
 
