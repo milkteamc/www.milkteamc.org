@@ -21,7 +21,7 @@ export const siteConfig = {
     keywords: ["Minecraft", "伺服器", "生存", "跨平台", "Minecraft 生存伺服器", "Java版", "基岩版", "手機版", "非正版", "無正版驗證", "社群"],
     author: "MilkTeaMC Team",
     siteUrl: "https://www.milkteamc.org",
-    image: "/og-image.png",
+    image: "/og-image.webp",
     twitterHandle: "@milkteamcorg"
   },
   
