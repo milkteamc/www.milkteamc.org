@@ -40,27 +40,30 @@ const { ui } = siteConfig;
     <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
     
+    <link rel="preload" href="/fonts/NotoSansTC-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/NotoSansTC-Medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/NotoSansTC-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    
     <!-- Global Styles -->
     <link rel="stylesheet" href="/styles/global.css">
 </head>
 <body>
     <!-- Header -->
     <Header />
-
     <!-- Main Content -->
     <main>
         <slot />
     </main>
-
     <!-- Footer -->
     <Footer />
-
     <!-- Copy Success Toast -->
     <div id="copyToast" class="copy-toast">
         <span>{ui.copySuccess}</span>
     </div>
 
     <!-- JavaScript -->
-    <script type="module" src="/scripts/main.js"></script>
+    <script>
+      import '../scripts/main.js';
+    </script>
 </body>
 </html>

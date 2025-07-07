@@ -1,3 +1,27 @@
+@font-face {
+  font-family: 'Noto Sans TC';
+  src: url('/fonts/NotoSansTC-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans TC';
+  src: url('/fonts/NotoSansTC-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans TC';
+  src: url('/fonts/NotoSansTC-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --primary-color: #D4A574;
   --primary-dark: #C89660;
@@ -36,21 +60,6 @@
   --max-width-container: 1200px;
   --max-width-content: 800px;
   --max-width-card: 600px;
-}
-
-* {
-  font-family: 'Microsoft JhengHei', 'PingFang TC', 'Hiragino Sans GB', 'Noto Sans CJK TC', 'Source Han Sans TC', 'WenQuanYi Micro Hei', sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Microsoft JhengHei', 'PingFang TC', 'Hiragino Sans GB', 'Noto Sans CJK TC', 'Source Han Sans TC', 'WenQuanYi Micro Hei', sans-serif;
-  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-  color: var(--text-primary);
-  min-height: 100vh;
-  line-height: 1.6;
 }
 
 /* Header Styles */
@@ -753,4 +762,54 @@ body {
   .stat-label {
       font-size: var(--font-size-sm);
   }
+}
+
+* {
+  font-family: 'Noto Sans TC', 'Microsoft JhengHei', 'PingFang TC', 'Hiragino Sans GB', -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans TC', 'Microsoft JhengHei', 'PingFang TC', 'Hiragino Sans GB', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 var(--spacing-sm) 0;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: var(--font-size-3xl);
+  margin: 0 0 var(--spacing-md) 0;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: var(--font-size-2xl);
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+h3 {
+  font-size: var(--font-size-xl);
+  margin: 0 0 var(--spacing-xs) 0;
+}
+
+h4 {
+  font-size: var(--font-size-lg);
+}
+
+h5 {
+  font-size: var(--font-size-base);
+}
+
+h6 {
+  font-size: var(--font-size-sm);
 }
