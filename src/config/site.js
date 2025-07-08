@@ -17,8 +17,8 @@ export const siteConfig = {
   
   seo: {
     title: "奶茶伺服器 —— 帶給您全新的 Minecraft 遊戲體驗",
-    description: "您是否想要一個有趣、豐富的 Minecraft 生存伺服器？那麼，奶茶伺服器就是您一直在尋找的伺服器！我們擁有非常豐富的功能，讓您感受全新的生存體驗。",
-    keywords: ["Minecraft", "伺服器", "生存", "跨平台", "Minecraft 生存伺服器", "Java版", "基岩版", "手機版", "非正版", "無正版驗證", "社群"],
+    description: "最好玩的 Minecraft 生存伺服器！不管是交朋友還是遊玩各種豐富的功能，都能在這裡找到屬於你的天地！我們支援電腦、手機加入，馬上加入遊玩！",
+    keywords: ["minecraft生存伺服器", "1.21", "2b2t", "台灣麥塊", "mc生存伺服器", "原味生存", "廢土", "廢土伺服器", "巴哈姆特", "推薦", "伺服器列表", "Java版", "基岩版", "手機版"],
     author: "MilkTeaMC Team",
     siteUrl: "https://www.milkteamc.org",
     image: "/og-image.webp",
