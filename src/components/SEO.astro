@@ -19,7 +19,7 @@ const metaDescription = description || seo.description;
 
 const fullImage = image ? `${seo.siteUrl}${image}` : `${seo.siteUrl}${seo.image}`;
 
-const canonicalURL = new URL(Astro.url.pathname, seo.siteUrl);
+const canonicalURL = Astro.url ? new URL(Astro.url.pathname, seo.siteUrl) : seo.siteUrl;
 
 const jsonLD = {
   "@context": "https://schema.org",
