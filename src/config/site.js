@@ -1,15 +1,15 @@
 export const siteConfig = {
   name: "奶茶伺服器",
   description: "奶茶伺服器 —— 帶給您全新的 Minecraft 遊戲體驗",
-  tagline: "帶給您全新的 Minecraft 遊戲體驗",
+  tagline: "交朋友、玩遊戲，建出你的第二個家 🏡",
   
   servers: {
     java: {
-      label: "Java 版",
+      label: "💻 Java 版",
       ip: "milkteamc.org"
     },
     bedrock: {
-      label: "基岩版", 
+      label: "📱 基岩版", 
       ip: "milkteamc.org",
       port: "10147"
     }
